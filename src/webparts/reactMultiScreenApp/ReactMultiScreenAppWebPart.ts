@@ -5,7 +5,6 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'ReactMultiScreenAppWebPartStrings';
 import Router from './components/Router';
-// https://github.com/flatiron/director
   
 export interface IReactMultiScreenAppWebPartProps {
   description: string;
