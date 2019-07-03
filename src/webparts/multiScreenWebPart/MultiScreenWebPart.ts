@@ -4,7 +4,7 @@ import { Version } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { App } from './components/App';
 
-export default class ReactMultiScreenAppWebPart extends BaseClientSideWebPart<{}> {
+export default class MultiScreenWebPart extends BaseClientSideWebPart<{}> {
 
   public render(): void {
     ReactDom.render(React.createElement(App), this.domElement);

@@ -2,17 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
-    "react-multi-screen-app-web-part": {
+    "multi-screen-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/reactMultiScreenApp/ReactMultiScreenAppWebPart.js",
-          "manifest": "./src/webparts/reactMultiScreenApp/ReactMultiScreenAppWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/multiScreenWebPart/MultiScreenWebPart.js",
+          "manifest": "./src/webparts/multiScreenWebPart/MultiScreenWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "ReactMultiScreenAppWebPartStrings": "lib/webparts/reactMultiScreenApp/loc/{locale}.js"
+    "MultiScreenWebPartStrings": "lib/webparts/multiScreenWebPart/loc/{locale}.js"
   }
 }

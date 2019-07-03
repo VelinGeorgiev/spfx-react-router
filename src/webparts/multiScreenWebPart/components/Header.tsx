@@ -6,8 +6,8 @@ export class Header extends React.Component<{}, {}> {
     return (
       <div>
         <Link to="/" >Home</Link> |
-        <Link to="/screen1" >Go to screen 1</Link> |
-        <Link to="/screen2" >Go to screen 2</Link>
+        <Link to="/screen1" > Go to screen 1</Link> |
+        <Link to="/screen2" > Go to screen 2</Link>
       </div>
     );
   }
