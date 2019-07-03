@@ -4,7 +4,8 @@ import { Version } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'ReactMultiScreenAppWebPartStrings';
-import Router from './components/Router';
+import { App } from './components/App';
+import { IAppProps } from './components/IAppProps';
   
 export interface IReactMultiScreenAppWebPartProps {
   description: string;
@@ -13,7 +14,7 @@ export interface IReactMultiScreenAppWebPartProps {
 export default class ReactMultiScreenAppWebPart extends BaseClientSideWebPart<IReactMultiScreenAppWebPartProps> {
 
   public render(): void {
-    const element: any = React.createElement(Router, {});
+    const element: any = React.createElement(App, { description:"" } as IAppProps);
 
     ReactDom.render(element, this.domElement);
   }
