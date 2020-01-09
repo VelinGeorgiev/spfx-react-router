@@ -8,6 +8,8 @@ jobs:
         node-version: [10.x]
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
       - name: Display the path
         run: echo $PATH
         shell: bash 
