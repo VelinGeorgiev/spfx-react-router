@@ -43,6 +43,9 @@ jobs:
       - name: home f
         run: cd /home/runner; ls
         shell: bash
+      - name: home f1
+        run: cd /home; ls
+        shell: bash
         
 
           
