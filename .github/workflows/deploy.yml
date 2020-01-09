@@ -27,6 +27,7 @@ jobs:
         env:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
-      - name: o365 status
-        run:  o365 status
-        shell: bash 
+      - name: Office 365 CLI script
+        uses: VelinGeorgiev/action-cli-runscript@master
+        env:
+          O365_CLI_SCRIPT: o365 status
