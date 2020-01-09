@@ -17,5 +17,5 @@ jobs:
         run: ls
         shell: bash 
       - name: Isdocker
-        run: ./isdocker.sh
+        run: chmod +x ./isdocker.sh
         shell: bash 
