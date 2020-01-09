@@ -7,19 +7,3 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x]
-    
-    steps:
-    - name: Office 365 CLI Login
-      uses: VelinGeorgiev/action-cli-login@master
-      env:
-        ADMIN_USERNAME:  ${{ secrets.adminUsername }}
-        ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
-    - name: Display the cmd
-      run: echo %PATH%
-      shell: cmd  
-    - name: Display the pwsh
-      run: Write-Output ${env:PATH}
-      shell: pwsh
-    - name: Display the testps.ps1
-      run: ../testps.ps1
-      shell: pwsh
