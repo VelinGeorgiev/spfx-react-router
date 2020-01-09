@@ -2,7 +2,6 @@ name: SPFx CICD with O365 CLI
 on: [push]
 jobs:
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
