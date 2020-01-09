@@ -62,7 +62,10 @@ jobs:
         run: cd /home/runner/work/_temp/_github_workflow; ls
         shell: bash
       - name: _github_home home
-        run: cd /github/home; ls
+        run: cd /home/runner/work/_temp; ls
+        shell: bash
+      - name: _github_home home
+        run: cd /home/runner/work; ls
         shell: bash
         
         
