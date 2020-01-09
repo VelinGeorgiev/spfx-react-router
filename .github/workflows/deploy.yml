@@ -52,6 +52,9 @@ jobs:
       - name: home f3
         run: cd /; ls
         shell: bash
+      - name: home f4
+        run: cd /usr; ls
+        shell: bash
         
 
           
