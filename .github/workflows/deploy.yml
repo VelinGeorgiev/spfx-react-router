@@ -30,7 +30,7 @@ jobs:
       - name: Office 365 CLI script
         uses: VelinGeorgiev/action-cli-runscript@master
         env:
-          O365_CLI_SCRIPT: o365 spo tenant settings list
+          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
       - name: .o365cli-tokens.json exists
         run:  if [ -f /.o365cli-tokens.json ]; then echo ".o365cli-tokens.json exists"; else echo ".o365cli-tokens.json does not exist";fi
         shell: bash 
@@ -45,6 +45,12 @@ jobs:
         shell: bash
       - name: home f1
         run: cd /home; ls
+        shell: bash
+      - name: home f2
+        run: cd /home/runneradmin; ls
+        shell: bash
+      - name: home f3
+        run: cd /; ls
         shell: bash
         
 
