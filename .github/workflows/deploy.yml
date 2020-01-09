@@ -55,6 +55,19 @@ jobs:
       - name: home f4
         run: cd /usr; ls
         shell: bash
+      - name: workspace
+        run: cd /github/workspace; ls
+        shell: bash
+      - name: _github_home
+        run: cd /home/runner/work/_temp/_github_home; ls
+        shell: bash
+      - name: _github_home
+        run: cd /home/runner/work/_temp/_github_workflow; ls
+        shell: bash
+      - name: _github_home home
+        run: cd /github/home; ls
+        shell: bash
+        
         
 
           
