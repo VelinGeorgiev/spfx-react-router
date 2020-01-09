@@ -7,3 +7,10 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x]
+    
+    steps:
+    - name: Office 365 CLI Login
+      uses: VelinGeorgiev/action-cli-login@master
+      env:
+        ADMIN_USERNAME:  ${{ secrets.adminUsername }}
+        ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
