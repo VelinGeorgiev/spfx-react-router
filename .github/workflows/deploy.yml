@@ -11,3 +11,6 @@ jobs:
       - name: Display the path
         run: echo $PATH
         shell: bash 
+      - name: Isdocker
+        run: ../isdocker.sh
+        shell: bash 
