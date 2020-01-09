@@ -30,4 +30,4 @@ jobs:
       - name: Office 365 CLI script
         uses: VelinGeorgiev/action-cli-runscript@master
         env:
-          O365_CLI_SCRIPT: spo tenant settings list
+          O365_CLI_SCRIPT: o365 spo tenant settings list
