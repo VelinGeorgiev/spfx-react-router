@@ -8,6 +8,6 @@ jobs:
         node-version: [10.x]
     
     steps:
-      - name: Display the cmd
-        run: echo %PATH%
-        shell: cmd  
+      - name: Display the path
+        run: echo $PATH
+        shell: bash 
