@@ -35,7 +35,7 @@ jobs:
         run:  if [ -f /.o365cli-tokens.json ]; then echo ".o365cli-tokens.json exists"; else echo ".o365cli-tokens.json does not exist";fi
         shell: bash 
       - name: whoami
-        run:  echo "Current user: `whoami`"
+        run: echo whoami
         shell: bash 
 
           
