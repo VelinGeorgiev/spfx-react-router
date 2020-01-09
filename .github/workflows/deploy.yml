@@ -37,5 +37,9 @@ jobs:
       - name: whoami
         run: whoami
         shell: bash 
+      - name: home
+        run: eval echo "~$runner"
+        shell: bash 
+        
 
           
