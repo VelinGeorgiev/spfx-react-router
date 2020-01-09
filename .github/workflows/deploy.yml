@@ -40,6 +40,9 @@ jobs:
       - name: home
         run: eval echo "~$runner"
         shell: bash 
+      - name: home f
+        run: cd /home/runner; ls
+        shell: bash
         
 
           
