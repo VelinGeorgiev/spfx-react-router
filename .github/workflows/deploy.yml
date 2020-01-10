@@ -31,6 +31,17 @@ jobs:
         uses: VelinGeorgiev/action-cli-runscript@master
         env:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            az account show
+            az storage -h
       - name: .o365cli-tokens.json exists
         run:  if [ -f /.o365cli-tokens.json ]; then echo ".o365cli-tokens.json exists"; else echo ".o365cli-tokens.json does not exist";fi
         shell: bash 
