@@ -2,7 +2,7 @@ name: SPFx CICD with O365 CLI
 on: [push]
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         node-version: [10.x]
@@ -19,4 +19,4 @@ jobs:
         uses: VelinGeorgiev/action-cli-runscript@master
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
-          IS_POWERSHELL: true
+          IS_POWERSHELL: false
