@@ -8,7 +8,7 @@ jobs:
         node-version: [10.x]
     
     steps:
-      - name: Checkout code 2
+      - name: Checkout code 3
         uses: actions/checkout@v1
       - name: Office 365 CLI Login
         uses: VelinGeorgiev/action-cli-login@master
