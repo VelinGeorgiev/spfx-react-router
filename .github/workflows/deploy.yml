@@ -2,7 +2,7 @@ name: SPFx CICD with O365 CLI
 on: [push]
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [10.x]
