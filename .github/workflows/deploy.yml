@@ -19,6 +19,7 @@ jobs:
         uses: VelinGeorgiev/action-cli-runscript@master
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
+          IS_POWERSHELL: false
       - name: Azure Login
         uses: azure/login@v1
         with:
@@ -29,55 +30,6 @@ jobs:
           azcliversion: 2.0.72
           inlineScript: |
             az account show
-      - name: .o365cli-tokens.json exists
-        run:  if [ -f /.o365cli-tokens.json ]; then echo ".o365cli-tokens.json exists"; else echo ".o365cli-tokens.json does not exist";fi
-        shell: bash 
       - name: whoami
         run: whoami
-        shell: bash 
-      - name: home
-        run: eval echo "~$runner"
-        shell: bash 
-      - name: home f
-        run: cd /home/runner; ls
         shell: bash
-      - name: home f1
-        run: cd /home; ls
-        shell: bash
-      - name: home f2
-        run: cd /home/runneradmin; ls
-        shell: bash
-      - name: home f3
-        run: cd /; ls
-        shell: bash
-      - name: home f4
-        run: cd /usr; ls
-        shell: bash
-      - name: _github_home
-        run: cd /home/runner/work/_temp/_github_home; ls
-        shell: bash
-      - name: _github_home
-        run: cd /home/runner/work/_temp/_github_workflow; ls
-        shell: bash
-      - name: _github_home home
-        run: cd /home/runner/work/_temp; ls
-        shell: bash
-      - name: _github_home home
-        run: cd /home/runner/work; ls
-        shell: bash
-      - name: Display the path
-        run: echo $PATH
-        shell: bash 
-      - name: ls
-        run: ls
-        shell: bash 
-      - name: runsh
-        run: chmod +x ./isdocker.sh
-        shell: bash 
-      - name: isdocker
-        run:  if [ -f /.dockerenv ]; then echo "I'm inside matrix ;("; else echo "I'm living in real world!";fi
-        shell: bash 
-        
-        
-
-          
