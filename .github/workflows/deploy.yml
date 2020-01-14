@@ -19,4 +19,4 @@ jobs:
         uses: VelinGeorgiev/action-cli-runscript@master
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
-          IS_POWERSHELL: true
+          IS_POWERSHELL: false
