@@ -12,12 +12,12 @@ jobs:
         uses: actions/checkout@v1
       - name: Office 365 CLI Login
         uses: VelinGeorgiev/action-cli-login@master
-        env:
+        with:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
       - name: Office 365 CLI script
         uses: VelinGeorgiev/action-cli-runscript@master
-        env:
+        with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
       - name: Azure Login
         uses: azure/login@v1
