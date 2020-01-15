@@ -52,7 +52,7 @@ jobs:
       #   run: sudo npm i -g --production windows-build-tools
       #   shell: bash
       - name: bundle solution
-        run: sudo npm i && gulp bundle --ship && gulp package-solution --ship
+        run: npm i && gulp bundle --ship && gulp package-solution --ship
         shell: bash
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy
