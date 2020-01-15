@@ -15,8 +15,28 @@ jobs:
         with:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
-      - name: Office 365 CLI script
+      - name: Office 365 CLI script SH
         uses: VelinGeorgiev/action-cli-runscript@master
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
           IS_POWERSHELL: false
+      - name: Office 365 CLI script PS
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
+          IS_POWERSHELL: true
+      - name: Office 365 CLI script PS FILE
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT_PATH: ../testps.ps1
+          IS_POWERSHELL: true
+      - name: Office 365 CLI script SH FILE
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT_PATH: ../testsh.sh
+          IS_POWERSHELL: false
+      - name: Office 365 CLI script SH FILE (FAIL)
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT_PATH: ../testsh.sh
+          IS_POWERSHELL: true
