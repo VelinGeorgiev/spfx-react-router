@@ -64,7 +64,7 @@ jobs:
         uses: VelinGeorgiev/action-cli-deploy@master
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
-          SCOPE: sitecollection
+          SCOPE: sitecollection --debug ture
           SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
           OVERWRITE: true
       - name: Get the id of the app deployed
