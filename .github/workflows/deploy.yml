@@ -51,3 +51,20 @@ jobs:
       - name: bundle solution
         run: npm i && gulp bundle --ship && gulp package-solution --ship
         shell: bash
+      - name: Option 1 - Deploy app to tenant
+          id: o365clideploy
+          uses: VelinGeorgiev/action-cli-deploy@v1
+          with:
+            APP_FILE_PATH: ./sharepoint/solution/spfx-o365-cli-action.sppkg
+            SKIP_FEATURE_DEPLOYMENT: true
+            OVERWRITE: true
+      - name: Option 2 - Deploy app to a site collection
+          uses: pnp/action-cli-deploy@v1
+          with:
+            APP_FILE_PATH: sharepoint/solution/spfx-o365-cli-action.sppkg
+            SCOPE: sitecollection
+            SKIP_FEATURE_DEPLOYMENT: true
+            SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/s1
+            OVERWRITE: true
+      - name: Get the id of the app deployed
+        run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
