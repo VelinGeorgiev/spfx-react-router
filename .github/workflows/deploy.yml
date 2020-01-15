@@ -53,13 +53,13 @@ jobs:
         shell: bash
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy
-        uses: VelinGeorgiev/action-cli-deploy@v1
+        uses: VelinGeorgiev/action-cli-deploy@master
         with:
           APP_FILE_PATH: ./sharepoint/solution/spfx-o365-cli-action.sppkg
           SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection
-        uses: pnp/action-cli-deploy@v1
+        uses: pnp/action-cli-deploy@master
         with:
           APP_FILE_PATH: ./sharepoint/solution/spfx-o365-cli-action.sppkg
           SCOPE: sitecollection
