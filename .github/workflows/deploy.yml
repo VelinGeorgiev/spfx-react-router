@@ -41,5 +41,5 @@ jobs:
       - name: Office 365 CLI script SH FILE (FAIL)
         uses: VelinGeorgiev/action-cli-runscript@master
         with:
-          O365_CLI_SCRIPT_PATH: /testsh.sh
+          O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: true
