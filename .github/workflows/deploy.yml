@@ -15,59 +15,59 @@ jobs:
         with:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
-      # - name: Office 365 CLI script SH
-      #   uses: VelinGeorgiev/action-cli-runscript@master
-      #   with:
-      #     O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
-      #     IS_POWERSHELL: false
-      # - name: Office 365 CLI script PS
-      #   uses: VelinGeorgiev/action-cli-runscript@master
-      #   with:
-      #     O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
-      #     IS_POWERSHELL: true
-      # - name: ls
-      #   run: ls
-      #   shell: bash
-      # - name: Office 365 CLI script PS FILE
-      #   uses: VelinGeorgiev/action-cli-runscript@master
-      #   with:
-      #     O365_CLI_SCRIPT_PATH: ./testps.ps1
-      #     IS_POWERSHELL: true
-      # - name: Office 365 CLI script SH FILE
-      #   uses: VelinGeorgiev/action-cli-runscript@master
-      #   with:
-      #     O365_CLI_SCRIPT_PATH: ./testsh.sh
-      #     IS_POWERSHELL: false
-      # - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
-      #   uses: VelinGeorgiev/action-cli-runscript@master
-      #   with:
-      #     O365_CLI_SCRIPT_PATH: ./testsh.sh
-      #     IS_POWERSHELL: true
-      # - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
-      #   uses: VelinGeorgiev/action-cli-runscript@master
-      #   with:
-      #     O365_CLI_SCRIPT_PATH: ./testps.ps1
-      #     IS_POWERSHELL: false
+      - name: Office 365 CLI script SH
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
+          IS_POWERSHELL: false
+      - name: Office 365 CLI script PS
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
+          IS_POWERSHELL: true
+      - name: ls
+        run: ls
+        shell: bash
+      - name: Office 365 CLI script PS FILE
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT_PATH: ./testps.ps1
+          IS_POWERSHELL: true
+      - name: Office 365 CLI script SH FILE
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT_PATH: ./testsh.sh
+          IS_POWERSHELL: false
+      - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT_PATH: ./testsh.sh
+          IS_POWERSHELL: true
+      - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
+        uses: VelinGeorgiev/action-cli-runscript@master
+        with:
+          O365_CLI_SCRIPT_PATH: ./testps.ps1
+          IS_POWERSHELL: false
       # - name: windows-build-tools
       #   run: sudo npm i -g --production windows-build-tools
       #   shell: bash
-      - name: bundle solution
-        run: npm i && gulp bundle --ship && gulp package-solution --ship
-        shell: bash
+      # - name: bundle solution
+      #   run: npm i && gulp bundle --ship && gulp package-solution --ship
+      #   shell: bash
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy
         uses: VelinGeorgiev/action-cli-deploy@master
         with:
-          APP_FILE_PATH: ./sharepoint/solution/spfx-o365-cli-action.sppkg
+          APP_FILE_PATH: ./cors-request-sender.sppkg
           SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection
         uses: VelinGeorgiev/action-cli-deploy@master
         with:
-          APP_FILE_PATH: ./sharepoint/solution/spfx-o365-cli-action.sppkg
+          APP_FILE_PATH: ./cors-request-sender.sppkg
           SCOPE: sitecollection
           SKIP_FEATURE_DEPLOYMENT: true
-          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/s1
+          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad
           OVERWRITE: true
       - name: Get the id of the app deployed
         run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
