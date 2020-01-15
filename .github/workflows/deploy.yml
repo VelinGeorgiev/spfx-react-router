@@ -1,7 +1,7 @@
 name: SPFx CICD with O365 CLI
 on: [push]
 jobs:
-  deploy:
+  ubuntu:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,13 +38,16 @@ jobs:
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: false
-      - name: Office 365 CLI script SH FILE (FAIL)
+      - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
         uses: VelinGeorgiev/action-cli-runscript@master
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: true
-      - name: Office 365 CLI script SH FILE (FAIL)
+      - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
         uses: VelinGeorgiev/action-cli-runscript@master
         with:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: false
+      - name: bundle solution
+        run: npm run bundle --ship && npm run package-solution --ship
+        shell: bash
