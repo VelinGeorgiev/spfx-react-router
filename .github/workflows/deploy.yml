@@ -49,10 +49,10 @@ jobs:
       #     O365_CLI_SCRIPT_PATH: ./testps.ps1
       #     IS_POWERSHELL: false
       - name: windows-build-tools
-        run: npm i -g --production windows-build-tools
+        run: sudo npm i -g --production windows-build-tools
         shell: bash
       - name: bundle solution
-        run: npm i && gulp bundle --ship && gulp package-solution --ship
+        run: sudo npm i && gulp bundle --ship && gulp package-solution --ship
         shell: bash
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy
