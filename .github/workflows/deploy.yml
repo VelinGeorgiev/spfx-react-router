@@ -49,5 +49,5 @@ jobs:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: false
       - name: bundle solution
-        run: npm run bundle --ship && npm run package-solution --ship
+        run: npm i && gulp bundle --ship && gulp package-solution --ship
         shell: bash
