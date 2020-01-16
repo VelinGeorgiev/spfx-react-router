@@ -11,17 +11,17 @@ jobs:
       - name: Checkout code 3
         uses: actions/checkout@v1
       - name: Office 365 CLI Login
-        uses: VelinGeorgiev/action-cli-login@master
+        uses: VelinGeorgiev/action-cli-login@init-action
         with:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
       - name: Office 365 CLI script SH
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
           IS_POWERSHELL: false
       - name: Office 365 CLI script PS
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
           IS_POWERSHELL: true
@@ -29,22 +29,22 @@ jobs:
         run: ls
         shell: bash
       - name: Office 365 CLI script PS FILE
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: true
       - name: Office 365 CLI script SH FILE
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: false
       - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: true
       - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: false
@@ -56,12 +56,12 @@ jobs:
       #   shell: bash
       - name: Option 1 - Deploy app to tenant (INSTALL TEST)
         id: o365clideploy
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           SCOPE: sitecollection --debug ture
@@ -71,13 +71,13 @@ jobs:
         run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy2
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 2
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SCOPE: sitecollection
@@ -96,17 +96,17 @@ jobs:
       - name: Checkout code 4
         uses: actions/checkout@v1
       - name: Office 365 CLI Login
-        uses: VelinGeorgiev/action-cli-login@master
+        uses: VelinGeorgiev/action-cli-login@init-action
         with:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
       - name: Office 365 CLI script SH
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
           IS_POWERSHELL: false
       - name: Office 365 CLI script PS
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
           IS_POWERSHELL: true
@@ -114,22 +114,22 @@ jobs:
         run: ls
         shell: bash
       - name: Office 365 CLI script PS FILE
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: true
       - name: Office 365 CLI script SH FILE
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: false
       - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: true
       - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: false
@@ -141,12 +141,12 @@ jobs:
       #   shell: bash
       - name: Option 1 - Deploy app to tenant (INSTALL TEST)
         id: o365clideploy
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           SCOPE: sitecollection
@@ -156,13 +156,13 @@ jobs:
         run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy2
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 2
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SCOPE: sitecollection
@@ -181,17 +181,17 @@ jobs:
       - name: Checkout code 4
         uses: actions/checkout@v1
       - name: Office 365 CLI Login
-        uses: VelinGeorgiev/action-cli-login@master
+        uses: VelinGeorgiev/action-cli-login@init-action
         with:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
       - name: Office 365 CLI script SH
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
           IS_POWERSHELL: false
       - name: Office 365 CLI script PS
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
           IS_POWERSHELL: true
@@ -199,22 +199,22 @@ jobs:
         run: ls
         shell: bash
       - name: Office 365 CLI script PS FILE
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: true
       - name: Office 365 CLI script SH FILE
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: false
       - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testsh.sh
           IS_POWERSHELL: true
       - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
-        uses: VelinGeorgiev/action-cli-runscript@master
+        uses: VelinGeorgiev/action-cli-runscript@init-action
         with:
           O365_CLI_SCRIPT_PATH: ./testps.ps1
           IS_POWERSHELL: false
@@ -226,12 +226,12 @@ jobs:
       #   shell: bash
       - name: Option 1 - Deploy app to tenant (INSTALL TEST)
         id: o365clideploy
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           SCOPE: sitecollection
@@ -241,13 +241,13 @@ jobs:
         run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy2
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 2
-        uses: VelinGeorgiev/action-cli-deploy@master
+        uses: VelinGeorgiev/action-cli-deploy@init-action
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SCOPE: sitecollection
