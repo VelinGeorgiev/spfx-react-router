@@ -11,7 +11,7 @@ jobs:
       - name: Checkout code 3
         uses: actions/checkout@v1
       - name: Office 365 CLI Login
-        uses: VelinGeorgiev/action-cli-login@v1.0.0
+        uses: VelinGeorgiev/action-cli-login@v1
         with:
           ADMIN_USERNAME:  ${{ secrets.adminUsername }}
           ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
