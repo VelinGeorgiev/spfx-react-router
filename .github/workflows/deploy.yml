@@ -246,7 +246,7 @@ jobs:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
-      - name: Option 2 - Deploy app to a site collection 2
+      - name: Option 2 - Deploy app to a site collection 3
         uses: pnp/action-cli-deploy@v1.0.0
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
