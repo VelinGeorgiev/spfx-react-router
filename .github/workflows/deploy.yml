@@ -1,103 +1,14 @@
 name: SPFx CICD with O365 CLI
 on: [push]
 jobs:
-  ubuntu:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x]
-    
-    steps:
-      - name: Checkout code 3
-        uses: actions/checkout@v1
-      - name: Office 365 CLI Login
-        uses: pnp/action-cli-login@v1.0.0
-        with:
-          ADMIN_USERNAME:  ${{ secrets.adminUsername }}
-          ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
-      - name: Office 365 CLI script SH
-        uses: pnp/action-cli-runscript@v1.0.0
-        with:
-          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
-          IS_POWERSHELL: false
-      - name: Office 365 CLI script PS
-        uses: pnp/action-cli-runscript@v1.0.0
-        with:
-          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
-          IS_POWERSHELL: true
-      - name: ls
-        run: ls
-        shell: bash
-      - name: Office 365 CLI script PS FILE
-        uses: pnp/action-cli-runscript@v1.0.0
-        with:
-          O365_CLI_SCRIPT_PATH: ./testps.ps1
-          IS_POWERSHELL: true
-      - name: Office 365 CLI script SH FILE
-        uses: pnp/action-cli-runscript@v1.0.0
-        with:
-          O365_CLI_SCRIPT_PATH: ./testsh.sh
-          IS_POWERSHELL: false
-      - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
-        uses: pnp/action-cli-runscript@v1.0.0
-        with:
-          O365_CLI_SCRIPT_PATH: ./testsh.sh
-          IS_POWERSHELL: true
-      - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
-        uses: pnp/action-cli-runscript@v1.0.0
-        with:
-          O365_CLI_SCRIPT_PATH: ./testps.ps1
-          IS_POWERSHELL: false
-      # - name: windows-build-tools
-      #   run: sudo npm i -g --production windows-build-tools
-      #   shell: bash
-      # - name: bundle solution
-      #   run: npm i && gulp bundle --ship && gulp package-solution --ship
-      #   shell: bash
-      - name: Option 1 - Deploy app to tenant (INSTALL TEST)
-        id: o365clideploy
-        uses: pnp/action-cli-deploy@v1.0.1
-
-        with:
-          APP_FILE_PATH: ./spfx-cicd.sppkg
-          OVERWRITE: true
-      - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
-        uses: pnp/action-cli-deploy@v1.0.1
-
-        with:
-          APP_FILE_PATH: ./spfx-cicd.sppkg
-          SCOPE: sitecollection --debug ture
-          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
-          OVERWRITE: true
-      - name: Get the id of the app deployed
-        run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
-      - name: Option 1 - Deploy app to tenant
-        id: o365clideploy2
-        uses: pnp/action-cli-deploy@v1.0.1
-
-        with:
-          APP_FILE_PATH: ./cors-request-sender.sppkg
-          SKIP_FEATURE_DEPLOYMENT: true
-          OVERWRITE: true
-      - name: Option 2 - Deploy app to a site collection 2
-        uses: pnp/action-cli-deploy@v1.0.1
-
-        with:
-          APP_FILE_PATH: ./cors-request-sender.sppkg
-          SCOPE: sitecollection
-          SKIP_FEATURE_DEPLOYMENT: true
-          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
-          OVERWRITE: true
-      - name: Get the id of the app deployed
-        run: echo "The id of the app deployed is ${{ steps.o365clideploy2.outputs.APP_ID }}"
-  # macos:
-  #   runs-on: macos-latest
+  # ubuntu:
+  #   runs-on: ubuntu-latest
   #   strategy:
   #     matrix:
   #       node-version: [10.x]
     
   #   steps:
-  #     - name: Checkout code 4
+  #     - name: Checkout code 3
   #       uses: actions/checkout@v1
   #     - name: Office 365 CLI Login
   #       uses: pnp/action-cli-login@v1.0.0
@@ -155,7 +66,7 @@ jobs:
 
   #       with:
   #         APP_FILE_PATH: ./spfx-cicd.sppkg
-  #         SCOPE: sitecollection
+  #         SCOPE: sitecollection --debug ture
   #         SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
   #         OVERWRITE: true
   #     - name: Get the id of the app deployed
@@ -168,7 +79,7 @@ jobs:
   #         APP_FILE_PATH: ./cors-request-sender.sppkg
   #         SKIP_FEATURE_DEPLOYMENT: true
   #         OVERWRITE: true
-  #     - name: Option 2 - Deploy app to a site collection 3
+  #     - name: Option 2 - Deploy app to a site collection 2
   #       uses: pnp/action-cli-deploy@v1.0.1
 
   #       with:
@@ -179,6 +90,95 @@ jobs:
   #         OVERWRITE: true
   #     - name: Get the id of the app deployed
   #       run: echo "The id of the app deployed is ${{ steps.o365clideploy2.outputs.APP_ID }}"
+  macos:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    
+    steps:
+      - name: Checkout code 4
+        uses: actions/checkout@v1
+      - name: Office 365 CLI Login
+        uses: pnp/action-cli-login@v1.0.0
+        with:
+          ADMIN_USERNAME:  ${{ secrets.adminUsername }}
+          ADMIN_PASSWORD:  ${{ secrets.adminPassword }}
+      - name: Office 365 CLI script SH
+        uses: pnp/action-cli-runscript@v1.0.0
+        with:
+          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
+          IS_POWERSHELL: false
+      - name: Office 365 CLI script PS
+        uses: pnp/action-cli-runscript@v1.0.0
+        with:
+          O365_CLI_SCRIPT: o365 spo tenant appcatalogurl get
+          IS_POWERSHELL: true
+      - name: ls
+        run: ls
+        shell: bash
+      - name: Office 365 CLI script PS FILE
+        uses: pnp/action-cli-runscript@v1.0.0
+        with:
+          O365_CLI_SCRIPT_PATH: ./testps.ps1
+          IS_POWERSHELL: true
+      - name: Office 365 CLI script SH FILE
+        uses: pnp/action-cli-runscript@v1.0.0
+        with:
+          O365_CLI_SCRIPT_PATH: ./testsh.sh
+          IS_POWERSHELL: false
+      - name: Office 365 CLI script SH FILE (AUTO DISCOVER)
+        uses: pnp/action-cli-runscript@v1.0.0
+        with:
+          O365_CLI_SCRIPT_PATH: ./testsh.sh
+          IS_POWERSHELL: true
+      - name: Office 365 CLI script PS FILE (AUTO DISCOVER)
+        uses: pnp/action-cli-runscript@v1.0.0
+        with:
+          O365_CLI_SCRIPT_PATH: ./testps.ps1
+          IS_POWERSHELL: false
+      # - name: windows-build-tools
+      #   run: sudo npm i -g --production windows-build-tools
+      #   shell: bash
+      # - name: bundle solution
+      #   run: npm i && gulp bundle --ship && gulp package-solution --ship
+      #   shell: bash
+      - name: Option 1 - Deploy app to tenant (INSTALL TEST)
+        id: o365clideploy
+        uses: pnp/action-cli-deploy@v1.0.1
+
+        with:
+          APP_FILE_PATH: ./spfx-cicd.sppkg
+          OVERWRITE: true
+      - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
+        uses: pnp/action-cli-deploy@v1.0.1
+
+        with:
+          APP_FILE_PATH: ./spfx-cicd.sppkg
+          SCOPE: sitecollection
+          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
+          OVERWRITE: true
+      - name: Get the id of the app deployed
+        run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
+      - name: Option 1 - Deploy app to tenant
+        id: o365clideploy2
+        uses: pnp/action-cli-deploy@v1.0.1
+
+        with:
+          APP_FILE_PATH: ./cors-request-sender.sppkg
+          SKIP_FEATURE_DEPLOYMENT: true
+          OVERWRITE: true
+      - name: Option 2 - Deploy app to a site collection 3
+        uses: pnp/action-cli-deploy@v1.0.1
+
+        with:
+          APP_FILE_PATH: ./cors-request-sender.sppkg
+          SCOPE: sitecollection
+          SKIP_FEATURE_DEPLOYMENT: true
+          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
+          OVERWRITE: true
+      - name: Get the id of the app deployed
+        run: echo "The id of the app deployed is ${{ steps.o365clideploy2.outputs.APP_ID }}"
   # windows:
   #   runs-on: windows-latest
   #   strategy:
