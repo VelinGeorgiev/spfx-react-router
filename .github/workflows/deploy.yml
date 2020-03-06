@@ -56,12 +56,12 @@ jobs:
   #     #   shell: bash
   #     - name: Option 1 - Deploy app to tenant (INSTALL TEST)
   #       id: o365clideploy
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./spfx-cicd.sppkg
   #         OVERWRITE: true
   #     - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./spfx-cicd.sppkg
   #         SCOPE: sitecollection --debug ture
@@ -71,13 +71,13 @@ jobs:
   #       run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
   #     - name: Option 1 - Deploy app to tenant
   #       id: o365clideploy2
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./cors-request-sender.sppkg
   #         SKIP_FEATURE_DEPLOYMENT: true
   #         OVERWRITE: true
   #     - name: Option 2 - Deploy app to a site collection 2
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./cors-request-sender.sppkg
   #         SCOPE: sitecollection
@@ -141,12 +141,12 @@ jobs:
   #     #   shell: bash
   #     - name: Option 1 - Deploy app to tenant (INSTALL TEST)
   #       id: o365clideploy
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./spfx-cicd.sppkg
   #         OVERWRITE: true
   #     - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./spfx-cicd.sppkg
   #         SCOPE: sitecollection
@@ -156,13 +156,13 @@ jobs:
   #       run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
   #     - name: Option 1 - Deploy app to tenant
   #       id: o365clideploy2
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./cors-request-sender.sppkg
   #         SKIP_FEATURE_DEPLOYMENT: true
   #         OVERWRITE: true
   #     - name: Option 2 - Deploy app to a site collection 3
-  #       uses: pnp/action-cli-deploy@v1.0.0
+  #       uses: anoopt/action-cli-deploy@master
   #       with:
   #         APP_FILE_PATH: ./cors-request-sender.sppkg
   #         SCOPE: sitecollection
@@ -226,12 +226,12 @@ jobs:
       #   shell: bash
       - name: Option 1 - Deploy app to tenant (INSTALL TEST)
         id: o365clideploy
-        uses: pnp/action-cli-deploy@v1.0.0
+        uses: anoopt/action-cli-deploy@master
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 2 (INSTALL TEST)
-        uses: pnp/action-cli-deploy@v1.0.0
+        uses: anoopt/action-cli-deploy@master
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           SCOPE: sitecollection
@@ -241,13 +241,13 @@ jobs:
         run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
       - name: Option 1 - Deploy app to tenant
         id: o365clideploy2
-        uses: pnp/action-cli-deploy@v1.0.0
+        uses: anoopt/action-cli-deploy@master
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
       - name: Option 2 - Deploy app to a site collection 3
-        uses: pnp/action-cli-deploy@v1.0.0
+        uses: anoopt/action-cli-deploy@master
         with:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SCOPE: sitecollection
