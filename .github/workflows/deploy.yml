@@ -150,7 +150,7 @@ jobs:
   #       with:
   #         APP_FILE_PATH: ./spfx-cicd.sppkg
   #         SCOPE: sitecollection
-  #         SITE_COLLECTION_URL: https://pnp.sharepoint.com/sites/aad/appcatalog
+  #         SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
   #         OVERWRITE: true
   #     - name: Get the id of the app deployed
   #       run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
@@ -167,7 +167,7 @@ jobs:
   #         APP_FILE_PATH: ./cors-request-sender.sppkg
   #         SCOPE: sitecollection
   #         SKIP_FEATURE_DEPLOYMENT: true
-  #         SITE_COLLECTION_URL: https://pnp.sharepoint.com/sites/aad/appcatalog
+  #         SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
   #         OVERWRITE: true
   #     - name: Get the id of the app deployed
   #       run: echo "The id of the app deployed is ${{ steps.o365clideploy2.outputs.APP_ID }}"
@@ -235,7 +235,7 @@ jobs:
         with:
           APP_FILE_PATH: ./spfx-cicd.sppkg
           SCOPE: sitecollection
-          SITE_COLLECTION_URL: https://pnp.sharepoint.com/sites/aad/appcatalog
+          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
           OVERWRITE: true
       - name: Get the id of the app deployed
         run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
@@ -252,7 +252,7 @@ jobs:
           APP_FILE_PATH: ./cors-request-sender.sppkg
           SCOPE: sitecollection
           SKIP_FEATURE_DEPLOYMENT: true
-          SITE_COLLECTION_URL: https://pnp.sharepoint.com/sites/aad/appcatalog
+          SITE_COLLECTION_URL: https://velingeorgiev.sharepoint.com/sites/aad/appcatalog
           OVERWRITE: true
       - name: Get the id of the app deployed
         run: echo "The id of the app deployed is ${{ steps.o365clideploy2.outputs.APP_ID }}"
