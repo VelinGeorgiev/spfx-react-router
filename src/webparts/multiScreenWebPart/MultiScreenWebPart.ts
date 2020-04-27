@@ -1,13 +1,18 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import { Version, DisplayMode } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { App } from './components/App';
+import { Edit } from './components/Edit';
 
 export default class MultiScreenWebPart extends BaseClientSideWebPart<{}> {
 
   public render(): void {
-    ReactDom.render(React.createElement(App), this.domElement);
+    if(this.displayMode == DisplayMode.Edit) {
+      ReactDom.render(React.createElement(Edit), this.domElement);
+    } else {
+      ReactDom.render(React.createElement(App), this.domElement);
+    }
   }
 
   protected onDispose(): void {

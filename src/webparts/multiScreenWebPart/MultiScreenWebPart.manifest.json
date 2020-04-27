@@ -10,8 +10,8 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
     "group": { "default": "Other" },
-    "title": { "default": "MultiScreenWebPart" },
-    "description": { "default": "MultiScreenWebPart description" },
+    "title": { "default": "Horizon user overview" },
+    "description": { "default": "Horizon user overview" },
     "officeFabricIconFontName": "Page",
     "properties": {
       "description": "MultiScreenWebPart"
